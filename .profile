@@ -22,8 +22,8 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 function rvm_version {
-  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
-  [ "$gemset" != "" ] && echo "@$gemset"
+  local gemset=$(echo $GEM_HOME | awk -F'ruby-' '{print $2}')
+  [ "$gemset" != "" ] && echo "$gemset"
 }
 
 export PS1='\[\033[1;34m\]$(rvm_version)\[\033[0m\] \W$(__git_ps1 "\[\033[1;32m\](%s)\[\033[0m\]") \$ '
